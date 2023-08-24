@@ -28,7 +28,7 @@ app.get("/api/hello", function (req, res) {
 
 // shorturl post page
 app.post("/api/shorturl", (req, res) => {
-  const url = `https://${req.body.url}`;
+  const url = req.body.url;
   const shortenedURL = randomInt(10).toString();
 
   console.log(url, shortenedURL);
@@ -47,7 +47,7 @@ app.get("/api/shorturl/:shortURL", (req, res) => {
   if(originalURL){
     res.redirect(originalURL)
   } else {
-    res.status(404).send('Something is not right.')
+    res.status(400).json({error: 'invalid url'})
   }
 });
 
