@@ -2,9 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const dns = require("dns");
 const { randomInt } = require("crypto");
-const { mongoose } = require("mongoose");
+
 
 const shortURLs = {};
 
